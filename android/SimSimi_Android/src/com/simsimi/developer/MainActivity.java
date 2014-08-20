@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
 	 */
 	public void OnGetClick(View v) {
 		message = (TextView) findViewById(R.id.message);
-		simsimiAPI.execute(message);
+		new SimsimiAPI().execute(message);
 
 	}
 

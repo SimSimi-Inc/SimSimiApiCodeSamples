@@ -6,7 +6,7 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="lib" path="libs/commons-codec-1.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Minki/Desktop/libs/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="libs/fluent-hc-4.2.jar"/>
 	<classpathentry kind="lib" path="libs/httpclient-cache-4.2.jar"/>
 	<classpathentry kind="lib" path="libs/httpclient-4.2.jar"/>
