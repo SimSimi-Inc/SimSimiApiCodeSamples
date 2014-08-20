@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Simsimi API Example</title>
+<script type="text/javascript" charset="UTF-8">
+function submitform()
+{
+	var text= encodeURIComponent(text);
+	var lc= encodeURIComponent(lc);
+	document.forms["simsimiform"].submit();
+}
+</script>
+</head>
+<body>
+<fieldset>
+<legend> 
+<img src="http://appdata.hungryapp.co.kr/data_file/data_img/201110/RlkuSehzr5Q.jpg" width ="30"/> 
+Enter your text and lc
+</legend>
+<form name="simsimiform" action="simsimi_api.php" method="get" accept-charset="utf-8">
+
+<pre>Text : <input type="text" name="text"> </pre> <p>
+<pre>  LC : <input type="text" name="lc"> </pre> <p>
+<input type="button" value="Request" onClick="submitform()">
+ </form>
+</fieldset>
+</body>
+
+</html>

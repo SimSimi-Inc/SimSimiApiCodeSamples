@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" charset = 'utf-8' >
+function Request()
+{
+	var form = document.simsimi_form;
+	var text = form.text.value;
+	var lc = form.lc.value;
+	var xmlhttp;
+	
+if (window.XMLHttpRequest)
+  {
+	// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {
+	// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+}
+xmlhttp.open("GET",encodeURI("simsimi_api.php?text="+text+"&lc="+lc),true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+<h2>AJAX Simsimi Conversation API Example</h2>
+<div id="myDiv">
+<form name ='simsimi_form'>
+<pre>Text : <input type ="text" id = "text" name = "text"> </pre> <p>
+<pre>  LC : <input type ="text" id = "lc" name = "lc"> </pre> <p>
+<button type="button" onClick="Request()">Request</button>
+</form>
+</div>
+
+</body>
+</html>

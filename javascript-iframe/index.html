@@ -1,0 +1,72 @@
+<html>
+<head>
+
+<script type ="text/javascript">
+
+
+var remotingDiv;
+
+function createRemotingDiv(id,url)
+{
+	var rDiv = document.createElement('div');
+	rDiv.id = 'remotingDiv';
+	var style = 'border:0;width:0;height:0';
+	rDiv.innerHTML = "<iframe name ='"+id+"'id ='"+id+"'style='"+style+"'></iframe>";
+	
+	document.body.appendChild(rDiv);
+	rDiv.iframe = document.getElementById(id);
+	
+	rDiv.form = document.createElement('form');
+	rDiv.form.setAttribute('id', id+'RemotingForm');
+	rDiv.form.setAttribute('action', url);
+	
+	rDiv.form.setAttribute('target',id);
+	rDiv.form.target = id;
+	rDiv.form.setAttribute('method', 'post');
+	rDiv.form.innerHTML = '<input type="hidden" name ="data" id="'+id+'Data">';
+
+	rDiv.appendChild(rDiv.form);
+	document.write(rDiv.form.innerHTML);
+	rDiv.data = document.getElementById(id+'Data');
+	
+	return rDiv;
+	
+}
+
+function sendRequest(url,payload,callback)
+{
+	if(!remotingDiv)
+		{
+		
+		remotingDiv=createRemotingDiv('remotingFrame','index.html');
+		
+		}
+	
+        remotingDiv.form.action = url;
+	    remotingDiv.data.value = payload;
+	    remotingDiv.callback = callback;
+	    remotingDiv.form.submit();
+
+}
+
+function test()
+{
+	var form = document.simsimi_form;
+	var text = form.text.value;
+	var lc = form.lc.value;
+	sendRequest(encodeURI('http://sandbox.api.simsimi.com/request.p?key=716edf73-b4d4-416f-bf10-3022f9eb5421&lc='+lc+'&ft=0.0&text='+text),'',function(result){alert(result)});	
+	
+}
+
+</script>
+</head>
+
+<body id ="body">
+<h2>iframe Simsimi Conversation API Example</h2>
+<form name ='simsimi_form'>
+<pre>Text : <input type ="text" id ="text" name ="text"> </pre> <p>
+<pre>  LC : <input type ="text" id ="lc" name ="lc"> </pre> <p>
+<button type="button" onClick="test()">Request</button>
+</form>
+</body>
+</html>
